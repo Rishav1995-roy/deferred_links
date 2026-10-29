@@ -9,7 +9,7 @@ docker build -t deferred-links-server .
 docker run -p 8080:8080 -v dl-data:/data -e BASE_URL=https://links.example.com -e API_KEYS=change-me deferred-links-server
 ```
 
-or `dart run bin/server.dart` (needs `libsqlite3`). `STORE=memory` runs without a database for trials.
+or `dart run bin/server.dart` (SQLite is bundled by `package:sqlite3`; needs Dart 3.10+). `STORE=memory` runs without a database for trials.
 
 ## Configuration (environment)
 
