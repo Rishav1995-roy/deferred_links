@@ -1,0 +1,21 @@
+# Same rules as .gitignore
+.DS_Store
+.dart_tool/
+.packages
+.pub/
+build/
+/pubspec.lock
+*.iml
+.idea/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/doc/api/
+
+# Local-only docs (excluded from git via .git/info/exclude)
+CLAUDE.md
+
+# The reference server is a separate Dart package in the repository
+/server/
+# Demo generation tooling (needs ffmpeg and the example app)
+/tool/
+/dart_test.yaml

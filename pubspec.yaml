@@ -1,0 +1,48 @@
+name: deferred_links
+description: "Self-hostable Firebase Dynamic Links replacement: app links, short links and deferred deep links (Android Install Referrer, iOS best-effort), plus a Docker server."
+version: 0.0.1
+homepage: https://github.com/Rishav1995-roy/deferred_links
+repository: https://github.com/Rishav1995-roy/deferred_links
+issue_tracker: https://github.com/Rishav1995-roy/deferred_links/issues
+
+topics:
+  - deep-links
+  - deferred-deep-link
+  - app-links
+  - dynamic-links
+  - install-referrer
+
+screenshots:
+  - description: Animated walkthrough of the example flow (illustration, not a device capture).
+    path: doc/demo.gif
+  - description: Example app, light mode.
+    path: doc/screenshot_light.png
+  - description: Example app, dark mode.
+    path: doc/screenshot_dark.png
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ">=5.0.0 <7.0.0"
+  # Used only by test/e2e_server_test.dart to run the real reference server.
+  deferred_links_server:
+    path: server
+  shelf: ^1.4.2
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: dev.rishav.deferred_links
+        pluginClass: DeferredLinksPlugin
+      ios:
+        pluginClass: DeferredLinksPlugin
