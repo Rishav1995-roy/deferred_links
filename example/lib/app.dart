@@ -1,4 +1,5 @@
 import 'package:deferred_links/deferred_links.dart';
+// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 
 /// Example app for `deferred_links`.
