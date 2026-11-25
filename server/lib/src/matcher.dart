@@ -113,7 +113,7 @@ MatchOutcome? pickMatch(
   if (scored.isEmpty) return null;
   scored.sort((a, b) {
     final byScore = b.$2.compareTo(a.$2);
-    return byScore != 0 ? byScore : b.$1.createdAt.compareTo(a.$1.createdAt);
+    return byScore != 0 ? byScore : a.$1.createdAt.compareTo(b.$1.createdAt);
   });
   final top = scored.first;
   for (final other in scored.skip(1)) {

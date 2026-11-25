@@ -335,7 +335,15 @@ void _matcherTests() {
     final s = DeviceSignals(screenWidth: 390, screenHeight: 844, timezoneOffsetMinutes: 0);
     final m = pickMatch([click(w: 390, h: 844, tz: 0, at: 1), click(w: 390, h: 844, tz: 0, at: 2)], s);
     expect(m, isNotNull);
-    expect(m!.click.createdAt, 2);
+    expect(m!.click.createdAt, 1);
+  });
+
+  test('equal-score clicks of the same link return the older click', () {
+    final s = DeviceSignals(screenWidth: 390, screenHeight: 844, timezoneOffsetMinutes: 0);
+    final newerFirst = pickMatch([click(w: 390, h: 844, tz: 0, at: 2), click(w: 390, h: 844, tz: 0, at: 1)], s);
+    final olderFirst = pickMatch([click(w: 390, h: 844, tz: 0, at: 1), click(w: 390, h: 844, tz: 0, at: 2)], s);
+    expect(newerFirst!.click.createdAt, 1);
+    expect(olderFirst!.click.createdAt, 1);
   });
 
   test('confidence tiers', () {
