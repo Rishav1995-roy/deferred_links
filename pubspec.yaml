@@ -1,6 +1,6 @@
 name: deferred_links
 description: "Self-hostable Firebase Dynamic Links replacement: app links, short links and deferred deep links (Android Install Referrer, iOS best-effort), plus a Docker server."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Rishav1995-roy/deferred_links
 repository: https://github.com/Rishav1995-roy/deferred_links
 issue_tracker: https://github.com/Rishav1995-roy/deferred_links/issues

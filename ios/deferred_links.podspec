@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'deferred_links'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'Self-hostable app links, short links and deferred deep links.'
   s.description      = <<-DESC
 Receives Universal Links and recovers deferred deep links after install, with a self-hosted server.

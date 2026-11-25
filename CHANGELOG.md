@@ -1,3 +1,7 @@
+## 0.0.2
+
+* Server: when two clicks of the same link score equally on an iOS deferred match, the older click is now used, as documented (the code took the newer one). The matched destination was the same either way.
+
 ## 0.0.1
 
 Initial release.
