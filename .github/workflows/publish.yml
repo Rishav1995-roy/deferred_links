@@ -1,0 +1,27 @@
+name: Publish to pub.dev
+
+# Pushing a tag like v0.0.3 publishes that version. pub.dev checks that the tag
+# matches the version in pubspec.yaml (Admin > Automated publishing, pattern v{{version}}).
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # OIDC token for pub.dev, no long-lived secret
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # setup-dart exchanges the GitHub OIDC token for a pub.dev token.
+      - uses: dart-lang/setup-dart@2286a0c042b44434fe26d292bbce8d34f7ec662b # v1.8.2
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: dart pub publish --dry-run
+      - run: dart pub publish --force
